@@ -18,11 +18,40 @@
                 name: 'Ryu',
                 age: 30
             }
+
+            /* 
+            1. creating a simple click event
+            2. onClick is an event handler, and we want to set it to equal a function
+            3. next, we need to define the function 
+            4. handleClick is the function I want to execute when someone clicks on the button 
+            5. this function takes the event object (ev) by default
+            6. there is a property on the event called the target element, i.e. what did the user click to cause the event (the button)
+            7. to call the event, we have to use this.handleClick because "this" refers the component the function is stored on
+            8. writing this.handleClick() would invoke the function as soon as the page loads. we only want the function to run when the button is clicked.
+            */
+
+            handleClick(ev){
+                // console.log(ev.target)
+                // what if we want to access the state of our component inside one of these functions?
+                console.log(this.state);
+            }
+
+            handleMouseOver(ev){
+                console.log(ev.target)
+            }
+
+            handleCopy(ev){
+                console.log('Try being original')
+            }
+
             render(){
                 return (
                     <div className='app-content'>
                       <h1>Hey, ninjas</h1>
                       <p>My name is: { this.state.name } and I am { this.state.age }</p>
+                      <button onClick={this.handleClick}>Click Me</button>
+                      <button onMouseOver={this.handleMouseOver}>Hover Me</button>
+                      <p onCopy={this.handleCopy}>What we think, we become</p>
                     </div>
                 )
             }
