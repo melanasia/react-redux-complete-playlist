@@ -30,17 +30,26 @@
             8. writing this.handleClick() would invoke the function as soon as the page loads. we only want the function to run when the button is clicked.
             */
 
-            handleClick(ev){
+            handleClick = (ev) => {
                 // console.log(ev.target)
                 // what if we want to access the state of our component inside one of these functions?
-                console.log(this.state);
+                console.log(this.state); // Undefined. Why?
+                /* we can access this.state down below in the template/browser window (render method) but not inside the functions. Has to do with the value of the this keyword in these two different locations. Value of 'this' is determined by how and where the function is called, NOT by where the function sits.
+                When we call a function in reaction to a DOM event in the browser window, the context of the 'this' keyword is LOST inside the function. This is normal JS behavior. Therefore we have to manually bind the context of the 'this' keyword to our function. Easiest way to do this is writing arrow functions INSTEAD OF function declarations. */
+                // How do we change the state?
+                // DO NOT do so directly
+                // Do so with a function and pass in an object that represents the state
+                this.setState({
+                    name: 'Yoshi',
+                    age: 25
+                })
             }
 
-            handleMouseOver(ev){
+            handleMouseOver = (ev) => {
                 console.log(ev.target)
             }
 
-            handleCopy(ev){
+            handleCopy = (ev) => {
                 console.log('Try being original')
             }
 
