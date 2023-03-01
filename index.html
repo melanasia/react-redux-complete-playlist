@@ -53,11 +53,28 @@
                 console.log('Try being original')
             }
 
+            handleChange = (ev) => {
+                this.setState({
+                    name: ev.target.value
+                });
+            }
+
+            handleSubmit = (ev) => {
+                // default behavior is the page refreshing
+                ev.preventDefault();
+                // log out the name to the console
+                console.log('form submitted', this.state.name)
+            }
+
             render(){
                 return (
                     <div className='app-content'>
                       <h1>Hey, ninjas</h1>
                       <p>My name is: { this.state.name } and I am { this.state.age }</p>
+                      <form onSubmit={this.handleSubmit}>
+                        <input type='text' onChange={this.handleChange}/>
+                        <button>Submit</button>
+                      </form>
                       <button onClick={this.handleClick}>Click Me</button>
                       <button onMouseOver={this.handleMouseOver}>Hover Me</button>
                       <p onCopy={this.handleCopy}>What we think, we become</p>
