@@ -1,0 +1,16 @@
+{
+    "blogs": [
+        {
+            "title": "My First Blog",
+            "body": "Follow my travels across South America...",
+            "author": "Jane",
+            "id": 1
+        },
+        {
+            "title": "Opening Party!",
+            "body": "It is a long established fact that...",
+            "author": "Samantha",
+            "id": 2
+        }
+    ]
+}
