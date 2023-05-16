@@ -11,14 +11,14 @@ const Home = () => {
           .then(res => {
           return res.json()
           })
-          .then((data) => {
+          .then(data => {
             setBlogs(data);
             setIsLoading(false);
-          })
+          });
           // console.log('useEffect ran')
           // console.log(blogs);
           // console.log(name);
-          }, 1000)
+          }, 1000);
     }, []);
 
     return (
